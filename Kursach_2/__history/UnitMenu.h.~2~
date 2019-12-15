@@ -1,0 +1,42 @@
+//---------------------------------------------------------------------------
+
+#ifndef UnitMenuH
+#define UnitMenuH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <FMX.Controls.hpp>
+#include <FMX.Forms.hpp>
+#include <FMX.Controls.Presentation.hpp>
+#include <FMX.StdCtrls.hpp>
+#include <FMX.Types.hpp>
+#include <FMX.Objects.hpp>
+#include <FMX.ImgList.hpp>
+#include <System.ImageList.hpp>
+//---------------------------------------------------------------------------
+class TFormMainMenu : public TForm
+{
+__published:	// IDE-managed Components
+	TImage *ImageClose;
+	TImage *ImageSnake;
+	TImage *ImagePong;
+	TImage *ImageKrestiki;
+	TImage *Image4game;
+	void __fastcall ImageCloseClick(TObject *Sender);
+	void __fastcall ImageSnakeMouseMove(TObject *Sender, TShiftState Shift, float X,
+          float Y);
+	void __fastcall ImagePongMouseMove(TObject *Sender, TShiftState Shift, float X,
+          float Y);
+	void __fastcall ImageKrestikiMouseMove(TObject *Sender, TShiftState Shift, float X,
+          float Y);
+	void __fastcall Image4gameMouseMove(TObject *Sender, TShiftState Shift, float X,
+          float Y);
+	void __fastcall ImageSnakeClick(TObject *Sender);
+
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFormMainMenu(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFormMainMenu *FormMainMenu;
+//---------------------------------------------------------------------------
+#endif

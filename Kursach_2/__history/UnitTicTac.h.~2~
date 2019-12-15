@@ -1,0 +1,26 @@
+//---------------------------------------------------------------------------
+
+#ifndef UnitTicTacH
+#define UnitTicTacH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <FMX.Controls.hpp>
+#include <FMX.Forms.hpp>
+#include <FMX.Objects.hpp>
+#include <FMX.Types.hpp>
+//---------------------------------------------------------------------------
+class TFormTicTac : public TForm
+{
+__published:	// IDE-managed Components
+	TImage *ImageTicClose;
+	TImage *Image1;
+	TImage *Image2;
+	void __fastcall ImageTicCloseClick(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TFormTicTac(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TFormTicTac *FormTicTac;
+//---------------------------------------------------------------------------
+#endif
