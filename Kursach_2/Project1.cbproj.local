@@ -5,7 +5,7 @@
     <Transaction>1899.12.30 00:00:00.000.795,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitMenu.fmx=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\UnitMenu.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.833,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitInfo.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx</Transaction>
     <Transaction>1899.12.30 00:00:00.000.492,C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\UnitMenu.fmx=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.405,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.122,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.454,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitSnake.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.149,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTic.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.671,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTicTac.cpp</Transaction>
@@ -18,22 +18,22 @@
     <Transaction>1899.12.30 00:00:00.000.737,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.940,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.164,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.245,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.757,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.833,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitInfo.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.454,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitSnake.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.795,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitMenu.cpp=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\UnitMenu.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.299,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.948,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.608,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.833,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitInfo.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.149,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTic.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.671,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTicTac.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.795,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitMenu.cpp=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\UnitMenu.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.608,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.245,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.757,=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.671,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTicTac.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.149,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTic.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.405,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.313,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.950,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.122,=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.671,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTicTac.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.454,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.h=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitSnake.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.492,C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\UnitMenu.cpp=C:\Users\Xiaomi\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.454,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitSnake.fmx</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.149,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTic.fmx</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.671,C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\Unit1.fmx=C:\My Files\Ycheba\3semestr\Kursach\Kursach_2\UnitTicTac.fmx</Transaction>
   </Transactions>
 </BorlandProject>

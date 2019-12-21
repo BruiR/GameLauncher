@@ -12,7 +12,7 @@
 #pragma resource "*.fmx"
 TFormMainMenu *FormMainMenu;
 
-void SelectIcon(TImage *Im, int WidthSize, int HeightSize);
+void MakeSize(TImage *Im, int WidthSize, int HeightSize);
 //---------------------------------------------------------------------------
 __fastcall TFormMainMenu::TFormMainMenu(TComponent* Owner)
 	: TForm(Owner)
@@ -25,15 +25,16 @@ void __fastcall TFormMainMenu::ImageCloseClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void MakeRegularSizes()
+void SelectIcon(TImage *SelectIm)
 {
-  SelectIcon(FormMainMenu->ImageSnake, StandartWidth, StandartHeight);
-  SelectIcon(FormMainMenu->Image4game, StandartWidth, StandartHeight);
-  SelectIcon(FormMainMenu->ImageKrestiki, StandartWidth, StandartHeight);
-  SelectIcon(FormMainMenu->ImageRandom, StandartWidth, StandartHeight);
+  MakeSize(FormMainMenu->ImageSnake, StandartWidth, StandartHeight);
+  MakeSize(FormMainMenu->Image4game, StandartWidth, StandartHeight);
+  MakeSize(FormMainMenu->ImageKrestiki, StandartWidth, StandartHeight);
+  MakeSize(FormMainMenu->ImageRandom, StandartWidth, StandartHeight);
+  MakeSize(SelectIm, SelectWidth, SelectHeight);
 }
 
-void SelectIcon(TImage *Im, int WidthSize, int HeightSize)
+void MakeSize(TImage *Im, int WidthSize, int HeightSize)
 {
   Im->Width=WidthSize;
   Im->Height=HeightSize;
@@ -42,29 +43,25 @@ void SelectIcon(TImage *Im, int WidthSize, int HeightSize)
 void __fastcall TFormMainMenu::ImageSnakeMouseMove(TObject *Sender, TShiftState Shift,
 		  float X, float Y)
 {
-  MakeRegularSizes();
-  SelectIcon(ImageSnake, SelectWidth, SelectHeight);
+  SelectIcon(ImageSnake);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageRandomMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  MakeRegularSizes();
-  SelectIcon(ImageRandom, SelectWidth, SelectHeight);
+  SelectIcon(ImageRandom);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageKrestikiMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  MakeRegularSizes();
-  SelectIcon(ImageKrestiki, SelectWidth, SelectHeight);
+  SelectIcon(ImageKrestiki);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::Image4gameMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  MakeRegularSizes();
-  SelectIcon(Image4game, SelectWidth, SelectHeight);
+  SelectIcon(Image4game);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageSnakeClick(TObject *Sender)
