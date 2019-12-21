@@ -6,10 +6,13 @@
 #include "UnitMenu.h"
 #include "UnitSnake.h"
 #include "UnitTicTac.h"
+#include "UnitInfo.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
 TFormMainMenu *FormMainMenu;
+
+void SelectIcon(TImage *Im, int WidthSize, int HeightSize);
 //---------------------------------------------------------------------------
 __fastcall TFormMainMenu::TFormMainMenu(TComponent* Owner)
 	: TForm(Owner)
@@ -21,83 +24,79 @@ void __fastcall TFormMainMenu::ImageCloseClick(TObject *Sender)
  FormMainMenu->Close();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormMainMenu::ImageSnakeMouseMove(TObject *Sender, TShiftState Shift,
-          float X, float Y)
+
+void MakeRegularSizes()
 {
-  FormMainMenu->ImageSnake->Width=429;
-  FormMainMenu->ImageSnake->Height=220;
+  SelectIcon(FormMainMenu->ImageSnake, StandartWidth, StandartHeight);
+  SelectIcon(FormMainMenu->Image4game, StandartWidth, StandartHeight);
+  SelectIcon(FormMainMenu->ImageKrestiki, StandartWidth, StandartHeight);
+  SelectIcon(FormMainMenu->ImagePong, StandartWidth, StandartHeight);
+}
 
-  FormMainMenu->Image4game->Width=444;
-  FormMainMenu->Image4game->Height=228;
+void SelectIcon(TImage *Im, int WidthSize, int HeightSize)
+{
+  Im->Width=WidthSize;
+  Im->Height=HeightSize;
+}
 
-  FormMainMenu->ImageKrestiki->Width=444;
-  FormMainMenu->ImageKrestiki->Height=228;
-
-  FormMainMenu->ImagePong->Width=444;
-  FormMainMenu->ImagePong->Height=228;
-
+void __fastcall TFormMainMenu::ImageSnakeMouseMove(TObject *Sender, TShiftState Shift,
+		  float X, float Y)
+{
+  MakeRegularSizes();
+  SelectIcon(ImageSnake, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImagePongMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  FormMainMenu->ImagePong->Width=429;
-  FormMainMenu->ImagePong->Height=220;
-
-  FormMainMenu->ImageSnake->Width=444;
-  FormMainMenu->ImageSnake->Height=228;
-
-  FormMainMenu->ImageKrestiki->Width=444;
-  FormMainMenu->ImageKrestiki->Height=228;
-
-  FormMainMenu->Image4game->Width=444;
-  FormMainMenu->Image4game->Height=228;
-
+  MakeRegularSizes();
+  SelectIcon(ImagePong, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageKrestikiMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  FormMainMenu->ImageKrestiki->Width=429;
-  FormMainMenu->ImageKrestiki->Height=220;
-
-  FormMainMenu->ImageSnake->Width=444;
-  FormMainMenu->ImageSnake->Height=228;
-
-  FormMainMenu->Image4game->Width=444;
-  FormMainMenu->Image4game->Height=228;
-
-  FormMainMenu->ImagePong->Width=444;
-  FormMainMenu->ImagePong->Height=228;
-
+  MakeRegularSizes();
+  SelectIcon(ImageKrestiki, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::Image4gameMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
-  FormMainMenu->Image4game->Width=429;
-  FormMainMenu->Image4game->Height=220;
-
-  FormMainMenu->ImageSnake->Width=444;
-  FormMainMenu->ImageSnake->Height=228;
-
-  FormMainMenu->ImageKrestiki->Width=444;
-  FormMainMenu->ImageKrestiki->Height=228;
-
-  FormMainMenu->ImagePong->Width=444;
-  FormMainMenu->ImagePong->Height=228;
-
+  MakeRegularSizes();
+  SelectIcon(Image4game, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageSnakeClick(TObject *Sender)
 {
- FormSnake->ShowModal();
+  FormSnake->ShowModal();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFormMainMenu::ImageKrestikiClick(TObject *Sender)
 {
- FormTicTac->ShowModal();
+  FormTicTac->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMainMenu::ImagePongClick(TObject *Sender)
+{
+ srand ( time(NULL) );
+ int RandomGame = rand()%2+ 1;
+	switch (RandomGame)
+	{
+	 case 1:
+		FormSnake->ShowModal();
+		break;
+	 case 2:
+		FormTicTac->ShowModal();
+	 }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMainMenu::Image4gameClick(TObject *Sender)
+{
+ FormInfo->ShowModal();
 }
 //---------------------------------------------------------------------------
 

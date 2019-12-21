@@ -7,9 +7,10 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("UnitMenu.cpp", FormMainMenu);
-USEFORM("UnitSnake.cpp", FormSnake);
 USEFORM("UnitTicTac.cpp", FormTicTac);
+USEFORM("UnitSnake.cpp", FormSnake);
+USEFORM("UnitMenu.cpp", FormMainMenu);
+USEFORM("UnitInfo.cpp", FormInfo);
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
@@ -19,6 +20,7 @@ extern "C" int FMXmain()
 		Application->CreateForm(__classid(TFormMainMenu), &FormMainMenu);
 		Application->CreateForm(__classid(TFormSnake), &FormSnake);
 		Application->CreateForm(__classid(TFormTicTac), &FormTicTac);
+		Application->CreateForm(__classid(TFormInfo), &FormInfo);
 		Application->Run();
 	}
 	catch (Exception &exception)

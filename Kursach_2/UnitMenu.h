@@ -13,6 +13,11 @@
 #include <FMX.ImgList.hpp>
 #include <System.ImageList.hpp>
 //---------------------------------------------------------------------------
+const int StandartWidth =444;
+const int StandartHeight =228;
+const int SelectWidth =429;
+const int SelectHeight =220;
+
 class TFormMainMenu : public TForm
 {
 __published:	// IDE-managed Components
@@ -32,6 +37,8 @@ __published:	// IDE-managed Components
           float Y);
 	void __fastcall ImageSnakeClick(TObject *Sender);
 	void __fastcall ImageKrestikiClick(TObject *Sender);
+	void __fastcall ImagePongClick(TObject *Sender);
+	void __fastcall Image4gameClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

@@ -1223,6 +1223,7 @@ object FormTicTac: TFormTicTac
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnClose = FormClose
   DesignerMasterStyle = 0
   object ImageTicClose: TImage
     MultiResBitmap.LoadSize = 2

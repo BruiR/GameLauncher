@@ -40,6 +40,7 @@ __published:	// IDE-managed Components
 	void __fastcall Im7Click(TObject *Sender);
 	void __fastcall Im8Click(TObject *Sender);
 	void __fastcall Im9Click(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TFormTicTac(TComponent* Owner);
