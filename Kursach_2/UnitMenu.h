@@ -23,13 +23,13 @@ class TFormMainMenu : public TForm
 __published:	// IDE-managed Components
 	TImage *ImageClose;
 	TImage *ImageSnake;
-	TImage *ImagePong;
+	TImage *ImageRandom;
 	TImage *ImageKrestiki;
 	TImage *Image4game;
 	void __fastcall ImageCloseClick(TObject *Sender);
 	void __fastcall ImageSnakeMouseMove(TObject *Sender, TShiftState Shift, float X,
           float Y);
-	void __fastcall ImagePongMouseMove(TObject *Sender, TShiftState Shift, float X,
+	void __fastcall ImageRandomMouseMove(TObject *Sender, TShiftState Shift, float X,
           float Y);
 	void __fastcall ImageKrestikiMouseMove(TObject *Sender, TShiftState Shift, float X,
           float Y);
@@ -37,8 +37,9 @@ __published:	// IDE-managed Components
           float Y);
 	void __fastcall ImageSnakeClick(TObject *Sender);
 	void __fastcall ImageKrestikiClick(TObject *Sender);
-	void __fastcall ImagePongClick(TObject *Sender);
+
 	void __fastcall Image4gameClick(TObject *Sender);
+	void __fastcall ImageRandomClick(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

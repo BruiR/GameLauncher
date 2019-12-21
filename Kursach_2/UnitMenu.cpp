@@ -30,7 +30,7 @@ void MakeRegularSizes()
   SelectIcon(FormMainMenu->ImageSnake, StandartWidth, StandartHeight);
   SelectIcon(FormMainMenu->Image4game, StandartWidth, StandartHeight);
   SelectIcon(FormMainMenu->ImageKrestiki, StandartWidth, StandartHeight);
-  SelectIcon(FormMainMenu->ImagePong, StandartWidth, StandartHeight);
+  SelectIcon(FormMainMenu->ImageRandom, StandartWidth, StandartHeight);
 }
 
 void SelectIcon(TImage *Im, int WidthSize, int HeightSize)
@@ -46,11 +46,11 @@ void __fastcall TFormMainMenu::ImageSnakeMouseMove(TObject *Sender, TShiftState 
   SelectIcon(ImageSnake, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormMainMenu::ImagePongMouseMove(TObject *Sender, TShiftState Shift,
+void __fastcall TFormMainMenu::ImageRandomMouseMove(TObject *Sender, TShiftState Shift,
           float X, float Y)
 {
   MakeRegularSizes();
-  SelectIcon(ImagePong, SelectWidth, SelectHeight);
+  SelectIcon(ImageRandom, SelectWidth, SelectHeight);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormMainMenu::ImageKrestikiMouseMove(TObject *Sender, TShiftState Shift,
@@ -79,7 +79,16 @@ void __fastcall TFormMainMenu::ImageKrestikiClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormMainMenu::ImagePongClick(TObject *Sender)
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMainMenu::Image4gameClick(TObject *Sender)
+{
+ FormInfo->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormMainMenu::ImageRandomClick(TObject *Sender)
 {
  srand ( time(NULL) );
  int RandomGame = rand()%2+ 1;
@@ -91,12 +100,6 @@ void __fastcall TFormMainMenu::ImagePongClick(TObject *Sender)
 	 case 2:
 		FormTicTac->ShowModal();
 	 }
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TFormMainMenu::Image4gameClick(TObject *Sender)
-{
- FormInfo->ShowModal();
 }
 //---------------------------------------------------------------------------
 

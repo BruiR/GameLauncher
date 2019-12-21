@@ -4,9 +4,6 @@ Coordinates=204,10,83,58
 [ImageSnake]
 Coordinates=297,10,86,58
 
-[ImagePong]
-Coordinates=10,78,80,58
-
 []
 Coordinates=322,56,111,36
 Visible=True
@@ -16,4 +13,7 @@ Coordinates=10,10,75,58
 
 [ImageKrestiki]
 Coordinates=100,78,67,58
+
+[ImageRandom]
+Coordinates=10,78,80,58
 
