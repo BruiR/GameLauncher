@@ -26,7 +26,7 @@ void __fastcall TFormMainMenu::ImageCloseClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 void SelectIcon(TImage *SelectIm)
-{
+{                                                                             //reduce picture
   MakeSize(FormMainMenu->ImageSnake, StandartWidth, StandartHeight);
   MakeSize(FormMainMenu->Image4game, StandartWidth, StandartHeight);
   MakeSize(FormMainMenu->ImageKrestiki, StandartWidth, StandartHeight);
@@ -34,7 +34,7 @@ void SelectIcon(TImage *SelectIm)
   MakeSize(SelectIm, SelectWidth, SelectHeight);
 }
 
-void MakeSize(TImage *Im, int WidthSize, int HeightSize)
+void MakeSize(TImage *Im, int WidthSize, int HeightSize)                     //resize picture
 {
   Im->Width=WidthSize;
   Im->Height=HeightSize;
@@ -85,7 +85,7 @@ void __fastcall TFormMainMenu::Image4gameClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormMainMenu::ImageRandomClick(TObject *Sender)
+void __fastcall TFormMainMenu::ImageRandomClick(TObject *Sender)                // open random game
 {
  srand ( time(NULL) );
  int RandomGame = rand()%2+ 1;

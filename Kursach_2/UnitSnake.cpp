@@ -11,15 +11,15 @@
 TFormSnake *FormSnake;
 //---------------------------------------------------------------------------
 int start_game, dir, num = 1;
-int Speed = 500;
-TImage* t[8][8];
-TImage* coin;
-struct Snake
+int Speed = 500;   //speed of snake
+TImage* t[8][8];   //snake pic
+TImage* coin;      //fruit pic
+struct Snake       //x,y of snake
 {
  int x, y;
 } s[70];
 
-struct Fruit
+struct Fruit       //x,y of apple
 {
  int x, y;
 } f;
@@ -50,15 +50,15 @@ void __fastcall TFormSnake::ImageCloseSnakeClick(TObject *Sender)
  CloseSnakeGame();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormSnake::Image1Click(TObject *Sender)
+void __fastcall TFormSnake::Image1Click(TObject *Sender) //start game
 {
  FormSnake->Timer1->Interval = Speed;
  num=1;
- s[0].x = rand() % N;
+ s[0].x = rand() % N;    //place snake  randomly
  s[0].y = rand() % M;
- f.x = rand() % N;
+ f.x = rand() % N;       //place apple  randomly
  f.y = rand() % M;
- coin->Position->X=FieldsPosition+(f.x)*size;
+ coin->Position->X=FieldsPosition+(f.x)*size;  //redraw apple
  coin->Position->Y=FieldsPosition+(f.y)*size;
  start_game=1;
  coin->Visible=true;
@@ -100,7 +100,7 @@ void __fastcall TFormSnake::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-int IsAppleInSnake()
+int IsAppleInSnake()    //Did apple appeare in snake?
 {
  for (int i = 0; i < num; i++)
 	if (s[i].x == f.x && s[i].y == f.y)
@@ -128,7 +128,7 @@ void NewShift()
 	 }
 }
 
-void EatTheApple()
+void EatTheApple()   //Have you eaten an apple?
 {
  if ((s[0].x == f.x) && (s[0].y == f.y))
 	{
@@ -183,7 +183,7 @@ void Tick()
  DeathCheck();
 }
 
-void EraseTheSnake()
+void EraseTheSnake() //delete old snake
 {
 	for (int i=0; i<N; i++)
 		for (int j=0; j<M; j++)
@@ -192,7 +192,7 @@ void EraseTheSnake()
 		}
 }
 
-void draw()
+void draw() //redraw snake
 {
  EraseTheSnake();
  int x_1,y_1;
@@ -204,7 +204,7 @@ void draw()
 	}
 }
 
-void __fastcall TFormSnake::Timer1Timer(TObject *Sender)
+void __fastcall TFormSnake::Timer1Timer(TObject *Sender) //Game loop
 {
 	if (start_game == 1)
 	{
@@ -220,7 +220,7 @@ void __fastcall TFormSnake::Timer1Timer(TObject *Sender)
 void __fastcall TFormSnake::FormKeyDown(TObject *Sender, WORD &Key, System::WideChar &KeyChar,
           TShiftState Shift)
 {
-	switch (Key)
+	switch (Key)   //New Direction
 	{
 	 case vkLeft:
 		dir = 1;
