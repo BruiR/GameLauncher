@@ -12,12 +12,7 @@
 TFormTicTac *FormTicTac;
 //---------------------------------------------------------------------------
 
-int field [4][4];                                        /*game field
-														   field [i][j]=0the cell is free
-														   field [i][j]=1the cell is occupied by x
-														   field [i][j]=2the cell is occupied by 0
-														   field [i][j]=3the cell is frozen */
-
+int field [4][4];                                         //game field
 int Play;                                                 //who is playing now
 void IsWin ();
 void DrawAndCheck(int i,int j, TImage *Im);
@@ -45,7 +40,7 @@ void CloseGame()
 	for (int i = 1; i < 4; i++)
 		for (int j = 1; j < 4; j++)
 		{
-		 field[i][j]=0;
+		 field[i][j]=FreeCell;
 		}
  Clear();
  FormTicTac->ImageWin->Bitmap= NULL;
@@ -62,7 +57,7 @@ void __fastcall TFormTicTac::ImageTicCloseClick(TObject *Sender)
   Clear();
   srand ( time(NULL) );
   Play = rand()%2 + 1;  //who is playing first
-	if (Play == 1)
+	if (Play == iks)
 	{
 	 FormTicTac->ImageNext->Bitmap->LoadFromFile("../../Photo/iks.png");
 	}
@@ -74,7 +69,7 @@ void __fastcall TFormTicTac::ImageTicCloseClick(TObject *Sender)
    for (int i = 1; i < 4; i++)       //clear field array
 		for (int j = 1; j < 4; j++)
 		{
-		 field[i][j]=0;
+		 field[i][j]=FreeCell;
 		}
 
  }
@@ -102,18 +97,18 @@ void __fastcall TFormTicTac::Button1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void DrawAndCheck(int i,int j, TImage *Im)   //draw x or 0 if cell is empty
 {
-  if ((Play ==1) &&  (field[i][j]== 0))
+  if ((Play ==iks) &&  (field[i][j]== FreeCell))
   {
-   field[i][j]=1;
-   Play = 2;
+   field[i][j]=iks;
+   Play = zero;
    Im->Bitmap->LoadFromFile("../../Photo/iks.png");
    FormTicTac->ImageNext->Bitmap->LoadFromFile("..//..//Photo//zero.png");
   }
   else
-	if ((Play ==2) &&  (field[i][j]== 0))
+	if ((Play ==zero) &&  (field[i][j]== FreeCell))
 	{
-	 field[i][j]=2;
-	 Play = 1;
+	 field[i][j]=zero;
+	 Play = iks;
 	 Im->Bitmap->LoadFromFile("../../Photo/zero.png");
 	 FormTicTac->ImageNext->Bitmap->LoadFromFile("../../Photo/iks.png");
 	}
@@ -165,20 +160,20 @@ void FreezeField()      //freeze all cell if smbdy win
  for (int q = 1; q < 4; q++)
 	for (int w = 1; w < 4; w++)
 	{
-	 field[q][w]=3;
+	 field[q][w]=frozen;
 	}
 }
 //---------------------------------------------------------------------------
 void DiagonalCheck()
 {
-  if ( (((field[1][1]== field[2][2]) && (field[2][2]== field[3][3])) || ((field[1][3]== field[2][2]) && (field[2][2]== field[3][1]))) && (field[2][2]!=0))
+  if ( (((field[1][1]== field[2][2]) && (field[2][2]== field[3][3])) || ((field[1][3]== field[2][2]) && (field[2][2]== field[3][1]))) && (field[2][2]!=FreeCell))
   {
-	if (field[2][2]==1)
+	if (field[2][2]==iks)
 	{
 	 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/x_win.png");
 	 FreezeField();
 	}
-	if (field[2][2]==2)
+	if (field[2][2]==zero)
 	{
 	 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/zero_win.png");
 	 FreezeField();
@@ -190,15 +185,15 @@ void ColumnCheck()
 {
   for (int q=1; q <= 3; q++)
   {
-	if (((field[1][q]== field[2][q]) && ( field[2][q]== field[3][q])) && field[1][q]!=0)
+	if (((field[1][q]== field[2][q]) && ( field[2][q]== field[3][q])) && field[1][q]!=FreeCell)
 	{
-	   if (field[1][q]==1)
+	   if (field[1][q]==iks)
 	   {
 		 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/x_win.png");
 		 FreezeField();
 	   }
 	   else
-		if (field[1][q]==2)
+		if (field[1][q]==zero)
 		{
 		 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/zero_win.png");
 		 FreezeField();
@@ -211,15 +206,15 @@ void RowCheck()
 {
   for (int q=1; q <= 3; q++)
   {
-	if (((field[q][1]== field[q][2]) && ( field[q][2]== field[q][3])) && field[q][1]!=0)
+	if (((field[q][1]== field[q][2]) && ( field[q][2]== field[q][3])) && field[q][1]!=FreeCell)
 	{
-		if (field[q][1]==1)
+		if (field[q][1]==iks)
 		{
 		 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/x_win.png");
 		 FreezeField();
 		}
 
-		if (field[q][1]==2)
+		if (field[q][1]==zero)
 		{
 		 FormTicTac->ImageWin->Bitmap->LoadFromFile("../../Photo/zero_win.png");
          FreezeField();

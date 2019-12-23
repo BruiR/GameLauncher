@@ -12,8 +12,14 @@
 #include <FMX.StdCtrls.hpp>
 //---------------------------------------------------------------------------
 const int FieldsPosition = 120;
-const int N = 8, M = 8;
-const int size = 70;
+const int LeftWallCoordinate = 0;
+const int UpperWallCoordinate = 0;
+const int FieldSize = 7;
+const int goLeft = 1;
+const int goRight = 2;
+const int goUp = 3;
+const int goDown = 0;
+const int size = 70;  // size of single cell
 const int MaxSpeed = 300;
 
 class TFormSnake : public TForm

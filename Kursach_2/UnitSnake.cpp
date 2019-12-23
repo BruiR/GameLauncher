@@ -10,7 +10,8 @@
 #pragma resource "*.fmx"
 TFormSnake *FormSnake;
 //---------------------------------------------------------------------------
-int dir, num = 1;
+int dir;           // direction of snake
+int SnakeLength = 1;
 int Speed = 500;   //speed of snake
 TImage* t[8][8];   //snake pic
 TImage* coin;      //fruit pic
@@ -36,8 +37,8 @@ __fastcall TFormSnake::TFormSnake(TComponent* Owner)
 
 void CloseSnakeGame()
 {
- EraseTheSnake();
- num = 0;
+ EraseTheSnake();  //delete old snake
+ SnakeLength = 0;
  coin->Visible=false;
  FormSnake->Timer1->Enabled=False;
  FormMainMenu->Visible=True;
@@ -53,16 +54,16 @@ void __fastcall TFormSnake::ImageCloseSnakeClick(TObject *Sender)
 void __fastcall TFormSnake::Image1Click(TObject *Sender) //start game
 {
 
- num=1;
- s[0].x = rand() % N;    //place snake  randomly
- s[0].y = rand() % M;
- f.x = rand() % N;       //place apple  randomly
- f.y = rand() % M;
+ SnakeLength=1;
+ s[0].x = rand() % FieldSize;    //place snake  randomly
+ s[0].y = rand() % FieldSize;
+ f.x = rand() % FieldSize;       //place apple  randomly
+ f.y = rand() % FieldSize;
  coin->Position->X=FieldsPosition+(f.x)*size;  //redraw apple
  coin->Position->Y=FieldsPosition+(f.y)*size;
+ coin->Visible=true;
  FormSnake->Timer1->Interval = Speed;
  FormSnake->Timer1->Enabled=True;
- coin->Visible=true;
 }
 //---------------------------------------------------------------------------
 
@@ -78,8 +79,8 @@ void AppleLoading()
 
 void SnakeLoading()
 {
- for (int i=0; i<N; i++)
-	for (int j=0; j<M; j++)
+ for (int i=0; i<=FieldSize; i++)
+	for (int j=0; j<=FieldSize; j++)
 	{
 	 t[i][j]= new TImage (FormSnake);
 	 t[i][j]->Visible=false;
@@ -103,7 +104,7 @@ void __fastcall TFormSnake::FormCreate(TObject *Sender)
 
 int IsAppleInSnake()    //Did apple appeare in snake?
 {
- for (int i = 0; i < num; i++)
+ for (int i = 0; i < SnakeLength; i++)
 	if (s[i].x == f.x && s[i].y == f.y)
 	{
 	 return 1;
@@ -115,16 +116,16 @@ void NewShift()
 {
 	switch (dir)
 	{
-	 case 0:
+	 case goDown:
 		s[0].y += 1;
 		break;
-	 case 1:
+	 case goLeft:
 		s[0].x -= 1;
 		break;
-	 case 2:
+	 case goRight:
 		s[0].x += 1;
 		break;
-	 case 3:
+	 case goUp:
 		s[0].y -= 1;
 	 }
 }
@@ -133,11 +134,11 @@ void EatTheApple()   //Have you eaten an apple?
 {
  if ((s[0].x == f.x) && (s[0].y == f.y))
 	{
-	 num++;
+	 SnakeLength++;
 		while (IsAppleInSnake())
 		{
-		 f.x = rand() % N;
-		 f.y = rand() % M;
+		 f.x = rand() % FieldSize;
+		 f.y = rand() % FieldSize;
 		}
 	 if(FormSnake->Timer1->Interval > MaxSpeed)
 	  FormSnake->Timer1->Interval -=25;
@@ -149,18 +150,18 @@ void EatTheApple()   //Have you eaten an apple?
 
 void DirectionIntoWall()
 {
- if (s[0].x > N-1) s[0].x = 0;
- if (s[0].x < 0) s[0].x = N-1;
- if (s[0].y > M-1) s[0].y = 0;
- if (s[0].y < 0) s[0].y = M-1;
+ if (s[0].x > FieldSize) s[0].x = LeftWallCoordinate;    // The snake entered the right wall -> appeared from the left
+ if (s[0].x < LeftWallCoordinate) s[0].x = FieldSize;    // The snake entered the left wall -> appeared from the right
+ if (s[0].y > FieldSize) s[0].y = UpperWallCoordinate;   // The snake entered the bottom wall -> appeared from the top
+ if (s[0].y < UpperWallCoordinate) s[0].y = FieldSize;   // The snake entered the upper wall -> appeared from the bottom
 }
 
 void DeathCheck()
 {
-	for (int i = 1; i < num; i++)
+	for (int i = 1; i < SnakeLength; i++)
 		if (s[0].x == s[i].x && s[0].y == s[i].y)
 		{
-		 num = 0;
+		 SnakeLength = 0;
 		 coin->Visible=false;
 		 FormSnake->Timer1->Enabled=False;
 		}
@@ -168,7 +169,7 @@ void DeathCheck()
 
 void BodyShift()
 {
-	for (int i = num; i > 0; --i)
+	for (int i = SnakeLength; i > 0; --i)
 	{
 	 s[i].x = s[i - 1].x;
 	 s[i].y = s[i - 1].y;
@@ -186,8 +187,8 @@ void Tick()
 
 void EraseTheSnake() //delete old snake
 {
-	for (int i=0; i<N; i++)
-		for (int j=0; j<M; j++)
+	for (int i=0; i<=FieldSize; i++)
+		for (int j=0; j<=FieldSize; j++)
 		{
 		 t[i][j]->Visible=false;
 		}
@@ -197,7 +198,7 @@ void draw() //redraw snake
 {
  EraseTheSnake();
  int x_1,y_1;
-	for (int i=0;i<num;i++)
+	for (int i=0;i<SnakeLength;i++)
 	{
 	 x_1= s[i].x;
 	 y_1= s[i].y;
@@ -221,16 +222,16 @@ void __fastcall TFormSnake::FormKeyDown(TObject *Sender, WORD &Key, System::Wide
 	switch (Key)   //New Direction
 	{
 	 case vkLeft:
-		dir = 1;
+		dir = goLeft;
 		break;
 	 case vkRight:
-		dir = 2;
+		dir = goRight;
 		break;
 	 case vkUp:
-		dir = 3;
+		dir = goUp;
 		break;
 	 case vkDown:
-		dir = 0;
+		dir = goDown;
 	 }
 }
 //---------------------------------------------------------------------------

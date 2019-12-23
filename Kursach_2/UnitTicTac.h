@@ -11,6 +11,15 @@
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.StdCtrls.hpp>
 //---------------------------------------------------------------------------
+const int FreeCell = 0;
+const int iks = 1;
+const int zero = 2;
+const int frozen = 3;
+														   /*
+														   field [i][j]=0the cell is free
+														   field [i][j]=1the cell is occupied by x
+														   field [i][j]=2the cell is occupied by 0
+														   field [i][j]=3the cell is frozen */
 class TFormTicTac : public TForm
 {
 __published:	// IDE-managed Components
