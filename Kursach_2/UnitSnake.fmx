@@ -1759,6 +1759,7 @@ object FormSnake: TFormSnake
     OnClick = Image1Click
   end
   object Timer1: TTimer
+    Enabled = False
     Interval = 500
     OnTimer = Timer1Timer
     Left = 968

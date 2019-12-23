@@ -10,7 +10,7 @@
 #pragma resource "*.fmx"
 TFormSnake *FormSnake;
 //---------------------------------------------------------------------------
-int start_game, dir, num = 1;
+int dir, num = 1;
 int Speed = 500;   //speed of snake
 TImage* t[8][8];   //snake pic
 TImage* coin;      //fruit pic
@@ -39,7 +39,7 @@ void CloseSnakeGame()
  EraseTheSnake();
  num = 0;
  coin->Visible=false;
- start_game =0;
+ FormSnake->Timer1->Enabled=False;
  FormMainMenu->Visible=True;
  FormSnake->Close();
 }
@@ -52,7 +52,7 @@ void __fastcall TFormSnake::ImageCloseSnakeClick(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormSnake::Image1Click(TObject *Sender) //start game
 {
- FormSnake->Timer1->Interval = Speed;
+
  num=1;
  s[0].x = rand() % N;    //place snake  randomly
  s[0].y = rand() % M;
@@ -60,7 +60,8 @@ void __fastcall TFormSnake::Image1Click(TObject *Sender) //start game
  f.y = rand() % M;
  coin->Position->X=FieldsPosition+(f.x)*size;  //redraw apple
  coin->Position->Y=FieldsPosition+(f.y)*size;
- start_game=1;
+ FormSnake->Timer1->Interval = Speed;
+ FormSnake->Timer1->Enabled=True;
  coin->Visible=true;
 }
 //---------------------------------------------------------------------------
@@ -94,7 +95,7 @@ void SnakeLoading()
 
 void __fastcall TFormSnake::FormCreate(TObject *Sender)
 {
- start_game =0;
+ FormSnake->Timer1->Enabled=False;
  AppleLoading();
  SnakeLoading();
 }
@@ -161,7 +162,7 @@ void DeathCheck()
 		{
 		 num = 0;
 		 coin->Visible=false;
-		 start_game = 0;
+		 FormSnake->Timer1->Enabled=False;
 		}
 }
 
@@ -206,11 +207,8 @@ void draw() //redraw snake
 
 void __fastcall TFormSnake::Timer1Timer(TObject *Sender) //Game loop
 {
-	if (start_game == 1)
-	{
 	 Tick();
 	 draw();
-	}
 }
 //---------------------------------------------------------------------------
 

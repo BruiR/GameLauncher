@@ -20,7 +20,7 @@ int field [4][4];                                        /*game field
 
 int Play;                                                 //who is playing now
 void IsWin ();
-void DrawAndCheck(int i,int j, int Player, TImage *Im);
+void DrawAndCheck(int i,int j, TImage *Im);
 //---------------------------------------------------------------------------
 void Clear() //clear game field
 {
@@ -86,7 +86,7 @@ void __fastcall TFormTicTac::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im1Click(TObject *Sender)
 {
- DrawAndCheck(1,1, Play, Im1);
+ DrawAndCheck(1,1,Im1);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::ImageRetryClick(TObject *Sender)
@@ -100,9 +100,9 @@ void __fastcall TFormTicTac::Button1Click(TObject *Sender)
  ImageNext->Bitmap = NULL;
 }
 //---------------------------------------------------------------------------
-void DrawAndCheck(int i,int j, int Player, TImage *Im)   //draw x or 0 if cell is empty
+void DrawAndCheck(int i,int j, TImage *Im)   //draw x or 0 if cell is empty
 {
-  if ((Player ==1) &&  (field[i][j]== 0))
+  if ((Play ==1) &&  (field[i][j]== 0))
   {
    field[i][j]=1;
    Play = 2;
@@ -110,7 +110,7 @@ void DrawAndCheck(int i,int j, int Player, TImage *Im)   //draw x or 0 if cell i
    FormTicTac->ImageNext->Bitmap->LoadFromFile("..//..//Photo//zero.png");
   }
   else
-	if ((Player ==2) &&  (field[i][j]== 0))
+	if ((Play ==2) &&  (field[i][j]== 0))
 	{
 	 field[i][j]=2;
 	 Play = 1;
@@ -122,42 +122,42 @@ void DrawAndCheck(int i,int j, int Player, TImage *Im)   //draw x or 0 if cell i
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im2Click(TObject *Sender)
 {
- DrawAndCheck(1,2, Play, Im2);
+ DrawAndCheck(1,2,Im2);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im3Click(TObject *Sender)
 {
- DrawAndCheck(1,3, Play, Im3);
+ DrawAndCheck(1,3,Im3);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im4Click(TObject *Sender)
 {
- DrawAndCheck(2,1, Play, Im4);
+ DrawAndCheck(2,1,Im4);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im5Click(TObject *Sender)
 {
- DrawAndCheck(2,2, Play, Im5);
+ DrawAndCheck(2,2,Im5);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im6Click(TObject *Sender)
 {
- DrawAndCheck(2,3, Play, Im6);
+ DrawAndCheck(2,3,Im6);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im7Click(TObject *Sender)
 {
- DrawAndCheck(3,1, Play, Im7);
+ DrawAndCheck(3,1,Im7);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im8Click(TObject *Sender)
 {
- DrawAndCheck(3,2, Play, Im8);
+ DrawAndCheck(3,2,Im8);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFormTicTac::Im9Click(TObject *Sender)
 {
- DrawAndCheck(3,3, Play, Im9);
+ DrawAndCheck(3,3,Im9);
 }
 //---------------------------------------------------------------------------
 void FreezeField()      //freeze all cell if smbdy win
